@@ -8,6 +8,7 @@ import numpy
 import pandas as pd
 import glob
 import sys, os
+import json
           
 path = os.path.dirname(sys.argv[0])    # gets the path automatically    
 
@@ -57,3 +58,7 @@ for i in range(0,len(medianSliced)):
         medianSlicedHigh.append(medianSliced[i])
         median4High.append(medianNumPy(medianSliced[i]))
 
+print median4High
+
+with open('data.json', 'w') as f:
+     json.dump(median4High, f)
